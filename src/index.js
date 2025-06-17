@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Header} from './App';
+
+
+const elem = React.createElement('h2',null, 'Hello world!');
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+
+
+  
+
   <React.StrictMode>
+  
     <App />
   </React.StrictMode>
 );
