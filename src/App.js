@@ -48,6 +48,24 @@ function Btn1(){
   
 }
 
+function WhoAmI(props){
+  return (
+    <div>
+      <h1>My name is {props.name}, surname -{props.surname} </h1>
+      <a href={props.link}>My profile</a>
+    </div>
+  )
+}
+
+function WhoAmI2({name, surname, link}){
+  return (
+    <div>
+      <h1>My name is {name()}, surname -{surname} </h1>
+      <a href={link}>My profile</a>
+    </div>
+  )
+}
+
 function App() {
   return (
     <div className="App">
@@ -57,6 +75,11 @@ function App() {
       <Btn/>
       <Field1/>  
       <Btn1/>
+      <WhoAmI name="john" surname="smith" link="facebook.com" />
+     
+      <WhoAmI2 name={() => {return 'John'}} surname="Smith" link="facebook.com" />
+      <WhoAmI2 name={() => {return 'John'}} surname="Smith" link="facebook.com" />
+      
 
     </div>
   );
