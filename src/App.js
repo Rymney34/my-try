@@ -71,7 +71,7 @@ class WhoAmI3 extends Component {
   constructor (props) {
       super(props);
       this.state = {
-        years: 27
+        years: 27,
         text: '+++'
       }
   }
