@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import React from 'react';
+import { Component } from 'react';
 import './App.css';
 
 const Header = () => {
@@ -66,6 +67,36 @@ function WhoAmI2({name, surname, link}){
   )
 }
 
+class WhoAmI3 extends Component {
+  constructor (props) {
+      super(props);
+      this.state = {
+        years: 27
+        text: '+++'
+      }
+  }
+
+  nextYear = () => {
+      console.log(1)
+      this.setState(state => ({
+        years: state.years + 1
+      }))
+  }
+
+  render() {
+        const {name, surname, link} = this.props
+        return (
+            <div>
+              
+              <h1>My name is {name}, surname -{surname} age - {this.state.years}</h1>
+              <a href={link}>My profile</a>
+              <button onClick={this.nextYear}>{this.state.text}</button>
+            </div>
+        )
+  }
+ 
+}
+
 function App() {
   return (
     <div className="App">
@@ -79,7 +110,9 @@ function App() {
      
       <WhoAmI2 name={() => {return 'John'}} surname="Smith" link="facebook.com" />
       <WhoAmI2 name={() => {return 'John'}} surname="Smith" link="facebook.com" />
-      
+
+
+      <WhoAmI3 name={'Alex'} surname="Smith" link="facebook.com" />
 
     </div>
   );
