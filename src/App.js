@@ -72,11 +72,26 @@ class WhoAmI3 extends Component {
       super(props);
       this.state = {
         years: 27,
-        text: '+++'
+        text: '+++',
+        position: ''
       }
+      this.nextYear = this.nextYear.bind(this)
   }
+//dont track what was in the state 
+  commitInput = (e, color) => {
+    this.setState({
+      position: e.target.value
+    })
+  }
+//treacking whaat was in the state (dynamic)
+  // nextYear() {
+  //     console.log(1)
+  //     this.setState(state => ({
+  //       years: state.years + 1
+  //     }))
+  // }
 
-  nextYear = () => {
+    nextYear = () => {
       console.log(1)
       this.setState(state => ({
         years: state.years + 1
@@ -85,12 +100,21 @@ class WhoAmI3 extends Component {
 
   render() {
         const {name, surname, link} = this.props
+        const {position, years} = this.state
+
+     
         return (
             <div>
               
-              <h1>My name is {name}, surname -{surname} age - {this.state.years}</h1>
+              <h1>My name is {name}, surname -{surname} 
+                age - {years}, 
+                position = {position}</h1>
               <a href={link}>My profile</a>
               <button onClick={this.nextYear}>{this.state.text}</button>
+              <form action="">
+                <span>Please enter you job</span>
+                <input type='text' onChange={(e) => this.commitInput(e, 'some color')}/>
+              </form>
             </div>
         )
   }
