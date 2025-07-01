@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import React from 'react';
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import './App.css';
 
 const Header = () => {
@@ -104,7 +104,8 @@ class WhoAmI3 extends Component {
 
      
         return (
-            <div>
+          // or emtpy <>
+            <Fragment>
               
               <h1>My name is {name}, surname -{surname} 
                 age - {years}, 
@@ -115,7 +116,7 @@ class WhoAmI3 extends Component {
                 <span>Please enter you job</span>
                 <input type='text' onChange={(e) => this.commitInput(e, 'some color')}/>
               </form>
-            </div>
+            </Fragment>
         )
   }
  
