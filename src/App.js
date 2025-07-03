@@ -2,10 +2,39 @@ import logo from './logo.svg';
 import React from 'react';
 import { Component, Fragment } from 'react';
 import './App.css';
+import styled  from 'styled-components';
+
+const EmpItem = styled.div`
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+    a {
+      display: block;
+      margin: 10px 0 10px 0;
+      color: ${props => props.active ? 'orange' : 'black'};
+    }
+    input {
+      display: block;
+      margin-top: 10px;
+    }
+`
+
+const Header1 = styled.h2`
+    font-size: 22px
+`
 
 const Header = () => {
   return <h2 className = 'header1'> Hello world</h2>
 }
+
+const Button = styled.button`
+  display: block;
+  padding: 5px 15px;
+  background-color: gold;
+  border: 1px solid rgba(0,0,0, .2);
+  box-shadow: 5px 5px 10px rgba(0,0,0, .2);
+`
 
 const Field = () => {
   const holder = 'Enter here';
@@ -105,22 +134,27 @@ class WhoAmI3 extends Component {
      
         return (
           // or emtpy <>
-            <Fragment>
+            <EmpItem active>
               
-              <h1>My name is {name}, surname -{surname} 
+              <Header1>My name is {name}, surname -{surname} 
                 age - {years}, 
-                position = {position}</h1>
+                position = {position}</Header1>
               <a href={link}>My profile</a>
-              <button onClick={this.nextYear}>{this.state.text}</button>
+              <Button onClick={this.nextYear}>{this.state.text}</Button>
               <form action="">
                 <span>Please enter you job</span>
                 <input type='text' onChange={(e) => this.commitInput(e, 'some color')}/>
               </form>
-            </Fragment>
+            </EmpItem>
         )
   }
  
 }
+
+    const Wrapper = styled.div`
+          width: 600px;
+          margin: 80px auto 0 auto;
+    `;
 
 function App() {
   return (
@@ -134,10 +168,12 @@ function App() {
       <WhoAmI name="john" surname="smith" link="facebook.com" />
      
       <WhoAmI2 name={() => {return 'John'}} surname="Smith" link="facebook.com" />
-      <WhoAmI2 name={() => {return 'John'}} surname="Smith" link="facebook.com" />
 
-
-      <WhoAmI3 name={'Alex'} surname="Smith" link="facebook.com" />
+   
+          <WhoAmI2 name={() => {return 'John'}} surname="Smith" link="facebook.com" />
+          <WhoAmI3 name={'Alex'} surname="Smith" link="facebook.com" />
+     
+      
 
     </div>
   );
